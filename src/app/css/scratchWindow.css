@@ -1,0 +1,43 @@
+.scratchWindow{
+    width: 100%;
+    height: 400px;
+    border: 1px solid black;
+}
+
+
+.scratchText{
+
+    height: 50%;
+    /* border: 1px solid red; */
+}
+
+.scratchHeaderMain{
+    float: right;
+    font-size: 4rem;
+    /* border: 1px solid yellow; */
+}
+
+.scratchDescMain{
+    float:left;
+}
+
+.button{
+    text-align: center;
+    width: 33%;
+    height: 50px;
+    font-size: 0.9em;
+}
+
+button{
+    
+}
+
+.stat{
+    text-align: center;
+    font-size: 1em;
+
+}
+
+.statRow{
+    padding: 10px;
+}
