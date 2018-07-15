@@ -1,3 +1,5 @@
+import { PROFILES } from './profiles';
+
 export const COMMENTS = 
 [
     {
@@ -5,7 +7,7 @@ export const COMMENTS =
         scratchId: 0,
         rating: 5,
         comment: "Imagine all the eatables, living in conFusion!",
-        author: "John Lemon",
+        author: PROFILES[0],
         date: "2012-10-16T17:57:28.556094Z"
     },
     {
@@ -13,7 +15,7 @@ export const COMMENTS =
         scratchId: 0,
         rating: 4,
         comment: "Sends anyone to heaven, I wish I could get my mother-in-law to eat it!",
-        author: "Paul McVites",
+        author: PROFILES[1],
         date: "2014-09-05T17:57:28.556094Z"
     },
     {
@@ -21,7 +23,7 @@ export const COMMENTS =
         scratchId: 0,
         rating: 3,
         comment: "Eat it, just eat it!",
-        author: "Michael Jaikishan",
+        author: PROFILES[2],
         date: "2015-02-13T17:57:28.556094Z"
     },
     {
@@ -29,7 +31,7 @@ export const COMMENTS =
         scratchId: 0,
         rating: 4,
         comment: "Ultimate, Reaching for the stars!",
-        author: "Ringo Starry",
+        author: PROFILES[3],
         date: "2013-12-02T17:57:28.556094Z"
     },
     {
@@ -37,7 +39,7 @@ export const COMMENTS =
         scratchId: 0,
         rating: 2,
         comment: "It's your birthday, we're gonna party!",
-        author: "25 Cent",
+        author: PROFILES[4],
         date: "2011-12-02T17:57:28.556094Z"
     },
     {
@@ -45,7 +47,7 @@ export const COMMENTS =
         scratchId: 1,
         rating: 5,
         comment: "Imagine all the eatables, living in conFusion!",
-        author: "John Lemon",
+        author: PROFILES[5],
         date: "2012-10-16T17:57:28.556094Z"
     },
     {
@@ -53,7 +55,7 @@ export const COMMENTS =
         scratchId: 1,
         rating: 4,
         comment: "Sends anyone to heaven, I wish I could get my mother-in-law to eat it!",
-        author: "Paul McVites",
+        author: PROFILES[6],
         date: "2014-09-05T17:57:28.556094Z"
     },
     {
@@ -61,7 +63,7 @@ export const COMMENTS =
         scratchId: 1,
         rating: 3,
         comment: "Eat it, just eat it!",
-        author: "Michael Jaikishan",
+        author: PROFILES[7],
         date: "2015-02-13T17:57:28.556094Z"
     },
     {
@@ -69,7 +71,7 @@ export const COMMENTS =
         scratchId: 1,
         rating: 4,
         comment: "Ultimate, Reaching for the stars!",
-        author: "Ringo Starry",
+        author:PROFILES[0],
         date: "2013-12-02T17:57:28.556094Z"
     },
     {
@@ -77,7 +79,7 @@ export const COMMENTS =
         scratchId: 1,
         rating: 2,
         comment: "It's your birthday, we're gonna party!",
-        author: "25 Cent",
+        author: PROFILES[1],
         date: "2011-12-02T17:57:28.556094Z"
     },
     {
@@ -85,7 +87,7 @@ export const COMMENTS =
         scratchId: 2,
         rating: 5,
         comment: "Imagine all the eatables, living in conFusion!",
-        author: "John Lemon",
+        author: PROFILES[2],
         date: "2012-10-16T17:57:28.556094Z"
     },
     {
@@ -93,7 +95,7 @@ export const COMMENTS =
         scratchId: 2,
         rating: 4,
         comment: "Sends anyone to heaven, I wish I could get my mother-in-law to eat it!",
-        author: "Paul McVites",
+        author: PROFILES[3],
         date: "2014-09-05T17:57:28.556094Z"
     },
     {
@@ -101,7 +103,7 @@ export const COMMENTS =
         scratchId: 2,
         rating: 3,
         comment: "Eat it, just eat it!",
-        author: "Michael Jaikishan",
+        author: PROFILES[4],
         date: "2015-02-13T17:57:28.556094Z"
     },
     {
@@ -109,7 +111,7 @@ export const COMMENTS =
         scratchId: 2,
         rating: 4,
         comment: "Ultimate, Reaching for the stars!",
-        author: "Ringo Starry",
+        author: PROFILES[5],
         date: "2013-12-02T17:57:28.556094Z"
     },
     {
@@ -117,7 +119,7 @@ export const COMMENTS =
         scratchId: 2,
         rating: 2,
         comment: "It's your birthday, we're gonna party!",
-        author: "25 Cent",
+        author: PROFILES[6],
         date: "2011-12-02T17:57:28.556094Z"
     },
     {
@@ -125,7 +127,7 @@ export const COMMENTS =
         scratchId: 3,
         rating: 5,
         comment: "Imagine all the eatables, living in conFusion!",
-        author: "John Lemon",
+        author: PROFILES[7],
         date: "2012-10-16T17:57:28.556094Z"
     },
     {
@@ -133,7 +135,7 @@ export const COMMENTS =
         scratchId: 3,
         rating: 4,
         comment: "Sends anyone to heaven, I wish I could get my mother-in-law to eat it!",
-        author: "Paul McVites",
+        author: PROFILES[0],
         date: "2014-09-05T17:57:28.556094Z"
     },
     {
@@ -141,7 +143,7 @@ export const COMMENTS =
         scratchId: 3,
         rating: 3,
         comment: "Eat it, just eat it!",
-        author: "Michael Jaikishan",
+        author: PROFILES[1],
         date: "2015-02-13T17:57:28.556094Z"
     },
     {
@@ -149,7 +151,7 @@ export const COMMENTS =
         scratchId: 3,
         rating: 4,
         comment: "Ultimate, Reaching for the stars!",
-        author: "Ringo Starry",
+        author: PROFILES[2],
         date: "2013-12-02T17:57:28.556094Z"
     },
     {
@@ -157,7 +159,7 @@ export const COMMENTS =
         scratchId: 3,
         rating: 2,
         comment: "It's your birthday, we're gonna party!",
-        author: "25 Cent",
+        author: PROFILES[3],
         date: "2011-12-02T17:57:28.556094Z"
     }
 ]

@@ -1,25 +1,36 @@
 .scratchWindow{
     width: 100%;
-    height: 400px;
+    height: 700px;
     border: 1px solid black;
+    overflow: hidden
 }
 
 
 .scratchText{
 
-    height: 50%;
-    /* border: 1px solid red; */
+    height: 30%;
+    border: 1px solid red;
+    padding: 10px;
 }
 
 .scratchHeaderMain{
     float: right;
     font-size: 4rem;
+    padding: 10px
     /* border: 1px solid yellow; */
 }
 
 .scratchDescMain{
-    float:left;
+    /* float:right; */
+    padding: 10px;
+    margin: 20px;
+    text-align: center;
 }
+
+.scratchButtons{
+    border: 1px solid palevioletred;
+}
+
 
 .button{
     text-align: center;
@@ -35,9 +46,32 @@ button{
 .stat{
     text-align: center;
     font-size: 1em;
-
+    
 }
 
 .statRow{
-    padding: 10px;
+    padding: 0px;
+    border: 1px solid goldenrod;
+}
+
+.commentsSection{
+    border: 1px solid green;
+    /* width: 100%; */
+}
+
+.commentRow{
+    /* border: 1px solid salmon; */
+    width: 100%;
+    padding: 5px;
+    border-bottom: 1px solid gray;
+}
+
+.commentText{
+    /* border: 1px solid purple; */
+    width: 70%;
+    text-align: center
+}
+
+.commentAuthor{
+    text-align: center;
 }

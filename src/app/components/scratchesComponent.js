@@ -37,25 +37,10 @@ export default class ScratchesComponent extends React.Component {
         let Id = this.props.params.scratchId
         // console.log(Id)
         var selectedScratch = scratches.filter((scratch) => scratch.id == Id)[0];
-        console.log(COMMENTS)
+        // console.log(COMMENTS)
         var comments = COMMENTS.filter((comment) => comment.scratchId == Id)
-        console.log(comments)
-        comments = comments.map(function(comment){
-            console.log(comment)
-            return(<div key={comment.id} >
-                    <Link to={`/profiles/`}>
-                        <div className="row comment">
-                            <div className="col-9 ">
-                                {comment.comment}
-                            </div>
-                            <div className="col-3">
-                                {comment.author}
-                            </div>
-                        </div>
-                        <br/>
-                    </Link>
-                </div>)
-        }.bind(this));
+        // console.log(comments)
+        
         
         scratches = scratches.map(function(scratch){
             // console.log(URL.searchParams.get(scratchId))// console.log(scratch)
@@ -81,9 +66,7 @@ export default class ScratchesComponent extends React.Component {
                     </div>
                 </div>
             </div>
-            <div className="row commentsSection">
-                 {comments}
-            </div>
+            
         </div>
         );
     } //render

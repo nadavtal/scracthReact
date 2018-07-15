@@ -1,20 +1,6 @@
-.scratchList{
-    border: 1px solid olive;
-    height: 370px;
-    overflow-y: scroll;
-    list-style: none;
-    text-align: center;
-
-}
 
 
-.scratchRow{
-    padding: 8px;
-    border-bottom: 1px solid rgb(29, 37, 15);
 
-}
 
-.commentsSection{
-    border: 1px solid green;
-    width: 70%;
-}
+
+

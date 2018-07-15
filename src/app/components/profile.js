@@ -14,12 +14,10 @@ var Profile = React.createClass({
             <div className="col-12 mt-5">
                 <Media tag="li">
                   <Media left middle>
-                      <Media object src="" alt={profile.firstName} />
+                      <Media object src={profile.photos[0]} alt={profile.firstName} width="100%" />
+                      <Media heading>{profile.firstName + ' ' + profile.lastName}</Media>
                   </Media>
-                  <Media body className="ml-5">
-                    <Media heading>{profile.firstName + ' ' + profile.lastName}</Media>
-                    <p></p>
-                  </Media>
+                  
                 </Media>
             </div>
         );

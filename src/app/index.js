@@ -43,7 +43,7 @@ class App extends Component {
     render(){
         return(
             <div>
-                {/* <AppNavBar></AppNavBar> */}
+                <AppNavBar></AppNavBar>
                 <Header />
                 <div className="container">
              
@@ -55,7 +55,7 @@ class App extends Component {
                         <Route exact path={'/contact'} component={Contact} ></Route>
 
                     </Router>
-                {/* <Footer></Footer> */}
+                <Footer></Footer>
                 </div>
             </div>
             

@@ -17,8 +17,10 @@
   ],
   "author": "The Net Ninja",
   "license": "MIT",
-  "bugs": {},
-  "homepage": "https://github.com/iamshaunjp/react-playlist#readme",
+  "bugs": {
+    
+  },
+  
   "dependencies": {
     "body-parser": "^1.18.3",
     "bootstrap": "^4.1.1",
@@ -30,8 +32,8 @@
     "mongodb": "3.1.1",
     "mongoose": "^5.2.1",
     "popper.js": "^1.14.3",
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
     "react-router": "^2.8.1",
     "react-router-dom": "^4.3.1",
     "reactstrap": "^6.2.0"

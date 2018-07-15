@@ -19,7 +19,7 @@ export default class ProfilesComponent extends React.Component{
     }
 
     onProfileSelect(profileId) {
-        console.log(profileId);
+        // console.log(profileId);
         // this.setState({selectedProfileId: profileId})
         
     }
@@ -28,7 +28,7 @@ export default class ProfilesComponent extends React.Component{
         var profiles = this.state.profiles;
         // console.log('profiles', profiles)
         let Id = this.props.params.profileId
-        console.log(Id)
+        // console.log(Id)
         var selectedProfile = profiles.filter((profile) => profile.id == Id)[0];
         // console.log('selected profile', selectedProfile)
         profiles = profiles.map(function(profile){
@@ -47,7 +47,7 @@ export default class ProfilesComponent extends React.Component{
                         <ProfilePageComponent profile={selectedProfile}></ProfilePageComponent>
                     </div>
                 </div>
-                <div className="col-sm-3">   
+                <div className="col-sm-3 profilesList">   
                     <div id="profiles-list">
                         <h1>profiles:</h1>
                         <ul> {profiles} </ul>

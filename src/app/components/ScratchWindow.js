@@ -1,5 +1,6 @@
 var React = require('react');
-
+var Profile = require('./profile');
+import { Link } from 'react-router';
 //CSS requires
 require('../css/scratchWindow.css');
 
@@ -69,15 +70,48 @@ function findProfilesByScratch(profileList, scratchId){
         let profilesWithScratch = findProfilesByScratch(profiles, scratch.id)
         let malesWithScratch = genderProfiles('male', profilesWithScratch)
         let femalesWithScratch = genderProfiles('female', profilesWithScratch)
-
+        comments = comments.map(function(comment){
+            // console.log(comment)
+            return(<div key={comment.id} className="row commentRow" >
+                        <div className="col-9 commentText ">
+                            <Link to={`/profiles/${comment.author.id}`}>
+                                {comment.comment}
+                            </Link>
+                        </div>
+                        <div className="col-3 commentAuthor">
+                            <Link to={`/profiles/${comment.author.id}`}>
+                                {comment.author.firstName}
+                            </Link>
+                        </div>
+                        <br/>
+                   </div>)
+        }.bind(this));
         
+        profilesWithScratch = profilesWithScratch.map(function(profile){
+            return(
+                <div key={profile.id} className="col-4 relatedProfile">
+                    <div key={profile.id} onClick={() => this.onProfileSelect(profile.id)}>
+                    <Link to={`/profiles/${profile.id}`}>  
+                      <Profile key= {profile.id} profile={profile} />
+                    </Link>  
+                  </div>
+                </div>
+            )
+            }.bind(this)
+        );
+
         return (
            <div className="container scratchWindow">
-                <div className="scratchText">
-                    <h1 className="scratchHeaderMain">{scratch.header} </h1>
-                    <h2 className="scratchDescMain">{scratch.desc} </h2>
+                <div className="row scratchText">
+                    <div className="col-9"> 
+                        <h2 className="scratchDescMain">{scratch.desc} </h2>
+                    </div>
+                    <div className="col-3"> 
+                        <h1 className="scratchHeaderMain">{scratch.header} </h1>
+                    </div>
                 </div>
-                <div className="row">
+                Rate scratch
+                <div className="row scratchButtons">
                     <div className="col-sm-4 button ">
                         <button onClick="">i like that <br/>{scratch.likes}</button>
                     </div>
@@ -88,6 +122,7 @@ function findProfilesByScratch(profileList, scratchId){
                       <button onClick="">deal breaker {scratch.dislikes}</button>
                     </div>
                 </div>
+                stats
                 <div className="row statRow">
                     <div className="col-2 stat">
                       <span><strong> { scratchPerc } </strong>%<br/> of all scratches</span><br/>
@@ -107,9 +142,15 @@ function findProfilesByScratch(profileList, scratchId){
                     <div className="col-2 stat">
                         <span><strong> { femalesWithScratch.length } </strong><br/> females have this scratch</span><br/>
                     </div>
-                 
                 </div>
-                
+                    comments
+                <div className="row commentsSection">
+                    {comments}
+                </div>
+                    profiles with this scratch
+                <div className="row relatedProfiles">
+                    {profilesWithScratch}
+                </div>
             </div>
                     );
     }
