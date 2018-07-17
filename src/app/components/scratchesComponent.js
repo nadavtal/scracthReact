@@ -1,15 +1,19 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 import { Link } from 'react-router';
-import  AppNavbar  from './appNavBar';
+
 import ScratchWindow from './ScratchWindow';
-import Scratch from './scratch';
-var AddItem = require('./addItem');
+import ScratchListComponent from './ScratchListComponent';
+import Scratch from './Scratch';
+
+
 import { PROFILES } from '../../shared/profiles';
 import { SCRATCHES } from '../../shared/scratches';
 import { COMMENTS } from '../../shared/comments';
 
 require('../css/scratchesComponent.css');
+
+
 
 export default class ScratchesComponent extends React.Component {
     constructor(props) {
@@ -21,55 +25,11 @@ export default class ScratchesComponent extends React.Component {
         selectedScratchId : 0
                        
         }
-    
+        this.updateSelectedScratch = this.updateSelectedScratch.bind(this);
+        this.onDelete = this.onDelete.bind(this);
+        this.onAdd = this.onAdd.bind(this);
+        this.onScratchSelect = this.onScratchSelect.bind(this);
     }
-
-    // const ScractWithId = ({match})
-    
-
-    onScratchSelect(scratchId) {
-        console.log(scratchId)
-        // this.setState({selectedScratchId: scratchId})
-    };
-    //getInitialState
-    render(){
-        var scratches = this.state.scratches;
-        let Id = this.props.params.scratchId
-        // console.log(Id)
-        var selectedScratch = scratches.filter((scratch) => scratch.id == Id)[0];
-        // console.log(COMMENTS)
-        var comments = COMMENTS.filter((comment) => comment.scratchId == Id)
-        // console.log(comments)
-        
-        
-        scratches = scratches.map(function(scratch){
-            // console.log(URL.searchParams.get(scratchId))// console.log(scratch)
-            return(<div key={scratch.id} onClick={() => this.onScratchSelect(scratch.id)}>
-                    <Link to={`/scratches/${scratch.id}`}>
-                        <Scratch key={scratch.id} scratch={scratch} onDelete={this.onDelete} />
-                    </Link>
-                    </div>)
-        }.bind(this));
-        return(
-            <div>
-            <div className="row">
-                <div className="col-12 col-md-8">
-                    <ScratchWindow scratches={this.state.scratches} scratch={selectedScratch} 
-                    profiles = {this.state.profiles} comments={comments}></ScratchWindow>
-                </div>    
-                <div className="col-12 col-md-4 ">
-                    <button>Male</button>
-                    <button>Female</button>
-                    <div >
-                        <ul className="scratchList">{scratches}</ul>
-                        <AddItem onAdd={this.onAdd} />
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-        );
-    } //render
 
     //Custom functions
 
@@ -94,6 +54,38 @@ export default class ScratchesComponent extends React.Component {
             scratches: updatedScratches
         })
     }
+    onScratchSelect(scratchId) {
+        console.log(scratchId)
+        // this.setState({selectedScratchId: scratchId})
+    };
+    
+    render(){
+        // console.log(this.props.match.params.scratchId)
+        let Id = this.props.match.params.scratchId
+        var comments = COMMENTS.filter((comment) => comment.scratchId == Id)
+        var scratches = this.state.scratches;
+        // console.log(scratches)
+        var selectedScratch = scratches.filter((scratch) => scratch.id == Id)[0];
+        
+        return(
+            <div>
+            <div className="row">
+                <div className="col-12 col-md-8">
+                    <ScratchWindow scratches={scratches} scratch={selectedScratch} 
+                    profiles = {this.state.profiles} comments={comments}></ScratchWindow>
+                </div>    
+                <div className="col-12 col-md-4 ">
+                    <button>Male</button>
+                    <button>Female</button>
+                    <ScratchListComponent scratches={scratches}></ScratchListComponent>
+                </div>
+            </div>
+            
+        </div>
+        );
+    }
+
+    
 
 };
 

@@ -1,11 +1,11 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 import { Media } from 'reactstrap';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import { PROFILES } from '../../shared/profiles';
 import { SCRATCHES } from '../../shared/scratches';
 import  ProfilePageComponent  from './ProfilePageComponent';
-var Profile = require('./profile');
+import Profile from './Profile';
 
 export default class ProfilesComponent extends React.Component{
     constructor(props) {
@@ -16,6 +16,7 @@ export default class ProfilesComponent extends React.Component{
             scratches: SCRATCHES,
             selectedProfileId : 0
         }
+        // this.onProfileSelect = this.onProfileSelect(bind(this))
     }
 
     onProfileSelect(profileId) {
@@ -26,8 +27,9 @@ export default class ProfilesComponent extends React.Component{
 
     render(){
         var profiles = this.state.profiles;
-        // console.log('profiles', profiles)
-        let Id = this.props.params.profileId
+        var scratches = this.state.scratches;
+        // console.log(this.props)
+        let Id = this.props.match.params.profileId
         // console.log(Id)
         var selectedProfile = profiles.filter((profile) => profile.id == Id)[0];
         // console.log('selected profile', selectedProfile)
@@ -44,7 +46,7 @@ export default class ProfilesComponent extends React.Component{
             <div className="row"> 
                 <div className="col-sm-7">   
                     <div id="profiles-list">
-                        <ProfilePageComponent profile={selectedProfile}></ProfilePageComponent>
+                        <ProfilePageComponent profile={selectedProfile} profiles={profiles} scratches={scratches}></ProfilePageComponent>
                     </div>
                 </div>
                 <div className="col-sm-3 profilesList">   

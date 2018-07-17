@@ -5,11 +5,8 @@ import { Media } from 'reactstrap';
 //CSS requires
 require('../css/todoItem.css');
 
-//Create TodoItem component
-var Profile = React.createClass({
-    render: function(){
-        const profile = this.props.profile;
-        // console.log(profile)
+const Profile = (props) => {
+    var profile = props.profile;
         return(
             <div className="col-12 mt-5">
                 <Media tag="li">
@@ -21,12 +18,6 @@ var Profile = React.createClass({
                 </Media>
             </div>
         );
-    },
-
-    //Custom functions
-    handleDelete: function(){
-        this.props.onDelete(this.props.profile);
     }
-});
 
-module.exports = Profile;
+export default Profile

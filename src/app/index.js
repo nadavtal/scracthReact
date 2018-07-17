@@ -1,7 +1,8 @@
 // var React = require('react');
 import React, { Component } from 'react'
 var ReactDOM = require('react-dom');
-import { Router, Route, browserHistory, Link, Redirect } from 'react-router';
+import { Router, browserHistory, Link, Redirect } from 'react-router';
+import { BrowserRouter, Route } from 'react-router-dom'
 
 // import 'font-awesome/css/font-awesome.css';
 import 'bootstrap-social/bootstrap-social.css';
@@ -13,7 +14,7 @@ import { SCRATCHES } from '../shared/scratches';
 
 
 //import components
-import AppNavBar from './components/AppNavBar';
+import MyNavBar from './components/MyNavBar';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ScratchesComponent from './components/ScratchesComponent'
@@ -43,18 +44,19 @@ class App extends Component {
     render(){
         return(
             <div>
-                <AppNavBar></AppNavBar>
+                <MyNavBar></MyNavBar>
                 <Header />
                 <div className="container">
              
-                    <Router history={browserHistory}>
+                    <BrowserRouter history={browserHistory}>
+                    <div>
                         <Route path={"/"} component={About}></Route>
                         <Route path={"/profiles/:profileId"} component={ProfilesComponent}></Route>
                         <Route path={"/about"} component={About}></Route>
                         <Route path={"/scratches/:scratchId"} component={ScratchesComponent}></Route>
                         <Route exact path={'/contact'} component={Contact} ></Route>
-
-                    </Router>
+                    </div>
+                    </BrowserRouter>
                 <Footer></Footer>
                 </div>
             </div>
