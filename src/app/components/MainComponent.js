@@ -19,6 +19,7 @@ import ScratchesComponent from './ScratchesComponent'
 import ProfilesComponent from './ProfilesComponent'
 import About from './about';
 import Contact from './contactComponent';
+import ContactRedux from './ContactReduxForm';
 // import connect from 'react-redux/lib/connect/connect';
 
 
@@ -44,7 +45,7 @@ const mapStateToProps = state => {
                         <Route path={"/profiles/:profileId"} component={ProfilesComponent}></Route>
                         <Route path={"/about"} component={About}></Route>
                         <Route path={"/scratches/:scratchId"} component={ScratchesComponent}></Route>
-                        <Route exact path={'/contact'} component={Contact} ></Route>
+                        <Route exact path={'/contact'} component={ContactRedux} ></Route>
                     </div>
                     
                 <Footer></Footer>
