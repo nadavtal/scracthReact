@@ -1,34 +1,41 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-import { Link } from 'react-router';
+import { withRouter, Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import Proptypes from 'prop-types';
 
 import ScratchWindow from './ScratchWindow';
 import ScratchListComponent from './ScratchListComponent';
 import Scratch from './Scratch';
 
 
-import { PROFILES } from '../../shared/profiles';
-import { SCRATCHES } from '../../shared/scratches';
-import { COMMENTS } from '../../shared/comments';
+
+
 
 require('../css/scratchesComponent.css');
 
+const mapStateToProps = state => {
+    return {
+        profiles: state.profiles,
+        scratches: state.scratches,
+        comments: state.comments
+    }
+}
 
-
-export default class ScratchesComponent extends React.Component {
+class ScratchesComponent extends React.Component {
     constructor(props) {
         super();
 
-        this.state = {
-        scratches : SCRATCHES,
-        profiles : PROFILES,
-        selectedScratchId : 0
+        // this.state = {
+        // scratches : SCRATCHES,
+        // profiles : PROFILES,
+        // selectedScratchId : 0
                        
-        }
+        // }
         this.updateSelectedScratch = this.updateSelectedScratch.bind(this);
         this.onDelete = this.onDelete.bind(this);
         this.onAdd = this.onAdd.bind(this);
-        this.onScratchSelect = this.onScratchSelect.bind(this);
+        // this.onScratchSelect = this.onScratchSelect.bind(this);
     }
 
     //Custom functions
@@ -39,7 +46,7 @@ export default class ScratchesComponent extends React.Component {
     }
 
     onDelete(item){
-        var updatedScratches = this.state.scratches.filter(function(val, index){
+        var updatedScratches = this.props.scratches.filter(function(val, index){
             return item !== val;
         });
         this.setState({
@@ -48,22 +55,24 @@ export default class ScratchesComponent extends React.Component {
     }
 
     onAdd(item){
-        var updatedScratches = this.state.scratches;
+        var updatedScratches = this.props.scratches;
         updatedScratches.push(item);
         this.setState({
             scratches: updatedScratches
         })
     }
-    onScratchSelect(scratchId) {
-        console.log(scratchId)
-        // this.setState({selectedScratchId: scratchId})
-    };
+    // onScratchSelect(scratchId) {
+    //     console.log('onScratchSelect envoked', scratchId)
+    //     // this.setState({selectedScratchId: scratchId})
+    // };
     
     render(){
+        // console.log(this.props)
         // console.log(this.props.match.params.scratchId)
         let Id = this.props.match.params.scratchId
-        var comments = COMMENTS.filter((comment) => comment.scratchId == Id)
-        var scratches = this.state.scratches;
+        var scratchComments = this.props.comments.filter((comment) => comment.scratchId == Id)
+        var scratches = this.props.scratches;
+        var profiles = this.props.profiles;
         // console.log(scratches)
         var selectedScratch = scratches.filter((scratch) => scratch.id == Id)[0];
         
@@ -72,7 +81,7 @@ export default class ScratchesComponent extends React.Component {
             <div className="row">
                 <div className="col-12 col-md-8">
                     <ScratchWindow scratches={scratches} scratch={selectedScratch} 
-                    profiles = {this.state.profiles} comments={comments}></ScratchWindow>
+                    profiles = {profiles} comments={scratchComments}></ScratchWindow>
                 </div>    
                 <div className="col-12 col-md-4 ">
                     <button>Male</button>
@@ -86,6 +95,6 @@ export default class ScratchesComponent extends React.Component {
     }
 
     
-
 };
 
+export default withRouter(connect(mapStateToProps)(ScratchesComponent))

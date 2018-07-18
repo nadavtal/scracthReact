@@ -4,6 +4,7 @@ var ReactDOM = require('react-dom');
 // These two containers are siblings in the DOM
 const appRoot = document.getElementById('app-root');
 const modalRoot = document.getElementById('modal-root');
+// console.log(modalRoot)
 
 export default class Modal extends React.Component {
     constructor(props) {
@@ -12,12 +13,14 @@ export default class Modal extends React.Component {
       // Modal component has its own element, we can render multiple
       // modal components into the modal container.
       this.el = document.createElement('div');
+      // this.el.appendChid()
       console.log(props)
     }
     componentDidMount() {
       // Append the element into the DOM on mount. We'll render
       // into the modal container element (see the HTML tab).
       modalRoot.appendChild(this.el);
+      console.log(modalRoot)
     }
   
     componentWillUnmount() {

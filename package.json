@@ -31,9 +31,11 @@
     "popper.js": "^1.14.3",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-redux": "^5.0.7",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
-    "reactstrap": "^6.2.0"
+    "reactstrap": "^6.2.0",
+    "redux": "^4.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.16.0",

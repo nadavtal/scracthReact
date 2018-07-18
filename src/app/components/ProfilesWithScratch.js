@@ -1,6 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import Profile from './Profile';
+
+
+function onProfileSelect(profileId){
+    console.log(profileId)
+}
 
 const ProfilesWithScratch = (props) => {
     var profilesWithScratch = props.profilesWithScratch
@@ -9,10 +14,10 @@ const ProfilesWithScratch = (props) => {
         return(
                        
                 <div key={profile.id} className="col-4 relatedProfile">
-                    <div key={profile.id} onClick={() => this.onProfileSelect(profile.id)}>
-                        {/* <Link to={`/profiles/${profile.id}`}>   */}
+                    <div key={profile.id} onClick={() => onProfileSelect(profile.id)}>
+                        <Link to={`/profiles/${profile.id}`}>  
                             <Profile key= {profile.id} profile={profile} />
-                        {/* </Link>   */}
+                        </Link>  
                     </div>
                 </div>
              )   

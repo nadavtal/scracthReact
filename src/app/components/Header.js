@@ -39,6 +39,7 @@ class Header extends Component {
 
     handleShow() {
         this.setState({showModal: true});
+        
         }
         
     handleHide() {
@@ -46,7 +47,8 @@ class Header extends Component {
         }
         
     render() {
-        const modal = this.state.showModal ? (
+        const modal = this.state.showModal ? 
+        (
             <Modal>
               <div className="modal">
                 <div>
@@ -71,6 +73,9 @@ class Header extends Component {
                             <div className="col-12 col-sm-6">
                                 <h1>SCRATCH</h1>
                                 <p>Connect by your personal scracthes</p>
+                            </div>
+                            <div id='headerModal' className="col-12 col-sm-6">
+                                
                             </div>
                         </div>
                     </div>

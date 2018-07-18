@@ -3,6 +3,8 @@ var ReactDom = require('react-dom');
 import { Link } from 'react-router-dom';
 import { Card, CardImg, CardImgOverlay, CardText, CardBody,
     CardTitle } from 'reactstrap';
+import Proptypes from 'prop-types';
+// console.log
 //CSS requires
 
 
@@ -29,4 +31,7 @@ const Scratch = (props) => {
             </div>
         );
     }
+    // Scratch.propTypes = {
+    //     scratch: PropTypes.object.isRequired
+    // }
 export default Scratch

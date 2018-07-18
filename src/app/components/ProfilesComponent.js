@@ -1,24 +1,35 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 import { Media } from 'reactstrap';
-import { Link } from 'react-router-dom';
-import { PROFILES } from '../../shared/profiles';
-import { SCRATCHES } from '../../shared/scratches';
+
 import  ProfilePageComponent  from './ProfilePageComponent';
 import Profile from './Profile';
+import { withRouter, Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-export default class ProfilesComponent extends React.Component{
+const mapStateToProps = state => {
+    return {
+        profiles: state.profiles,
+        scratches: state.scratches
+    }
+}
+// console.log(props, 'yayyy')
+class ProfilesComponent extends React.Component{
+    
+    
     constructor(props) {
+        console.log('profilesComponent props', props)
         super();
 
-        this.state = {
-            profiles: PROFILES,
-            scratches: SCRATCHES,
-            selectedProfileId : 0
-        }
+        // this.state = {
+        //     profiles: PROFILES,
+        //     scratches: SCRATCHES,
+        //     selectedProfileId : 0
+        // }
         // this.onProfileSelect = this.onProfileSelect(bind(this))
     }
 
+    
     onProfileSelect(profileId) {
         // console.log(profileId);
         // this.setState({selectedProfileId: profileId})
@@ -26,8 +37,9 @@ export default class ProfilesComponent extends React.Component{
     }
 
     render(){
-        var profiles = this.state.profiles;
-        var scratches = this.state.scratches;
+        var profiles = this.props.profiles;
+        console.log(profiles)
+        var scratches = this.props.scratches;
         // console.log(this.props)
         let Id = this.props.match.params.profileId
         // console.log(Id)
@@ -60,4 +72,4 @@ export default class ProfilesComponent extends React.Component{
     }
 }
 
-
+export default withRouter(connect(mapStateToProps)(ProfilesComponent))

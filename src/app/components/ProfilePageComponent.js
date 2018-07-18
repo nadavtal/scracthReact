@@ -1,6 +1,6 @@
 var React = require('react');
 import { Link } from 'react-router';
-import { SCRATCHES } from '../../shared/scratches';
+
 import ScratchListComponent from './ScratchListComponent';
 import PhotosComponent from './PhotosComponent';
 // import Carousell from './CarousellComponent';
@@ -10,10 +10,10 @@ require('../css/scratchWindow.css');
 
 // console.log(Carousel)
 
-function onScratchSelect(scratch) {
-        // console.log(scratch)
+// function onScratchSelect(scratch) {
+//         // console.log(scratch)
         
-    }
+//     }
 
 function getProfileScratches(profile, scratchesIds, allScratches){
     var profileScratches = []
