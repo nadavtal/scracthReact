@@ -3,6 +3,8 @@ import { Router, browserHistory  } from 'react-router';
 import { BrowserRouter, Route, withRouter, Redirect, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+//import actions
+
 // import 'font-awesome/css/font-awesome.css';
 import 'bootstrap-social/bootstrap-social.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -27,9 +29,13 @@ import ContactRedux from './ContactReduxForm';
 const mapStateToProps = state => {
     return {
         profiles: state.profiles,
-        scratches: state.scratches
+        scratches: state.scratches,
+        comments: state.comments
     }
 }
+
+
+
  class MainComponent extends Component {
   render() {
     return (

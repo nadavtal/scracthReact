@@ -70,6 +70,7 @@ function findProfilesByScratch(profileList, scratchId){
 
 
 const ScratchWindow = (props) => {
+    console.log('scratchwindow props', props)
     let scratch = props.scratch;
     let scratches = props.scratches;
     // console.log(scratches)
@@ -102,7 +103,7 @@ const ScratchWindow = (props) => {
             <ScratchMainText scratch={scratch}/>
             <ScratchButtons scratch={scratch} />
             <ScratchStats stats={stats}/>
-            <Comments comments = {comments} />
+            <Comments comments = {comments} addComment={props.addComment} scratchId={scratch.id}/>
             <ProfilesWithScratch profilesWithScratch={profilesWithScratch}/>
             
         </div>

@@ -26,6 +26,7 @@ export default class ContactRedux extends Component {
    
 
     handleSubmit(values) {
+        console.log(values)
         console.log('Current State is: ' + JSON.stringify(values));
         alert('Current State is: ' + JSON.stringify(values));
         // event.preventDefault();
@@ -136,7 +137,14 @@ export default class ContactRedux extends Component {
                     }}
                     />
             </Col>
-        </Row>      
+        </Row> 
+        <Row>   
+        <Col md={{size: 10, offset: 2}}>
+            <Button type="submit" color="primary">
+                send contact
+            </Button>
+        </Col>  
+        </Row>
        </LocalForm>
         </div>
     </div>

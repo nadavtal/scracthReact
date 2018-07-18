@@ -8,7 +8,8 @@ import ScratchWindow from './ScratchWindow';
 import ScratchListComponent from './ScratchListComponent';
 import Scratch from './Scratch';
 
-
+//import actions
+import { addComment } from '../../redux/ActionCreaters';
 
 
 
@@ -21,6 +22,10 @@ const mapStateToProps = state => {
         comments: state.comments
     }
 }
+
+const mapDispatchToProps = (dispatch) => ({
+    addComment: (scratchId, rating, author, comment) => dispatch(addComment(scratchId, rating, author, comment))
+});
 
 class ScratchesComponent extends React.Component {
     constructor(props) {
@@ -67,7 +72,7 @@ class ScratchesComponent extends React.Component {
     // };
     
     render(){
-        // console.log(this.props)
+        // console.log('scratches compoent props', this.props)
         // console.log(this.props.match.params.scratchId)
         let Id = this.props.match.params.scratchId
         var scratchComments = this.props.comments.filter((comment) => comment.scratchId == Id)
@@ -81,7 +86,8 @@ class ScratchesComponent extends React.Component {
             <div className="row">
                 <div className="col-12 col-md-8">
                     <ScratchWindow scratches={scratches} scratch={selectedScratch} 
-                    profiles = {profiles} comments={scratchComments}></ScratchWindow>
+                    profiles = {profiles} comments={scratchComments} 
+                    addComment={this.props.addComment}></ScratchWindow>
                 </div>    
                 <div className="col-12 col-md-4 ">
                     <button>Male</button>
@@ -97,4 +103,4 @@ class ScratchesComponent extends React.Component {
     
 };
 
-export default withRouter(connect(mapStateToProps)(ScratchesComponent))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ScratchesComponent))
