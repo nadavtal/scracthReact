@@ -38,7 +38,7 @@ export default class AddCommentForm extends Component {
         <div className="col-12 col-md-9">
         <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
         <Row className="form-group">
-            <Label htmlFor="comment" md={2}>Add comment</Label>
+            {/* <Label htmlFor="comment" md={2}>Add comment</Label> */}
             <Col md={10}>
                 <Control.text model=".comment" id="comment" name="comment"
                     placeholder="Write comment here"
@@ -58,14 +58,13 @@ export default class AddCommentForm extends Component {
                     }}
                     />
             </Col>
-        </Row>
-        <Row>
-            <Col md={{size: 10, offset: 2}}>
+            <Col md={{size: 1, offset: 1}}>
                 <Button type="submit" color="primary">
                     Add comment
                 </Button>
             </Col>
         </Row>
+        
         </LocalForm>
         </div>
     </div>

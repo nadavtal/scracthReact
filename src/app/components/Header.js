@@ -68,6 +68,9 @@ class Header extends Component {
                         <NavItem>
                             <Button outline onClick={this.handleShow}><span className=""></span> Login</Button>
                         </NavItem>
+                        {/* <NavItem>
+                            <Button outline onClick={this.handleShow}><span className=""></span> Sign up</Button>
+                        </NavItem> */}
                     </Nav>
                         <div className="row row-header">
                             <div className="col-12 col-sm-6">

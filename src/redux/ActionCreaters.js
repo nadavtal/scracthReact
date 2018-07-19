@@ -10,3 +10,20 @@ export const addComment = (scratchId, rating, author, comment) => ({
         comment: comment
     }
 })
+
+export const addProfile = (firstName, lastName, pw, userName, email, gender) => ({
+    type: ActionTypes.ADD_PROFILE,
+    payload: {
+        
+        firstName: firstName,
+        lastName: lastName,
+        pw: pw,
+        userName: userName,
+        email: email,
+        gender: gender,
+        birthDate: new Date,
+        photos: [],
+        scratches: []
+
+    }
+})
