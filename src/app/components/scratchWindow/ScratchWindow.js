@@ -1,15 +1,15 @@
 var React = require('react');
 
 import { Link } from 'react-router';
-import PhotosComponent from './PhotosComponent';
-import Profile from './Profile';
+import PhotosComponent from '../genericComponents/PhotosComponent';
+import Profile from '../genericComponents/Profile';
 import ProfilesWithScratch from './ProfilesWithScratch';
 import ScratchButtons from './ScratchButtons';
 import ScratchMainText from './ScratchMainText';
 import ScratchStats from './ScratchStats';
 import Comments from './Comments';
 //CSS requires
-require('../css/scratchWindow.css');
+require('../../css/scratchWindow.css');
 
 // console.log(ProfilesWithScratch )
 
@@ -57,16 +57,6 @@ function findProfilesByScratch(profileList, scratchId){
     // console.log('profileswithscratch', group);
     return group;
 }
-
-
-
-
-
-
-
-
-
-
 
 
 const ScratchWindow = (props) => {

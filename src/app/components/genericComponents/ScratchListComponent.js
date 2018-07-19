@@ -2,7 +2,7 @@ import React from 'react'
 import { Profile } from "./Profile";
 import { Link } from 'react-router-dom';
 import Scratch from './Scratch';
-// console.log(Scratch)
+import Clickable from './Clickable'
 
 function onScratchSelect(scratchId){
   console.log("onScratchSelect invoked", scratchId)
@@ -25,6 +25,8 @@ const ScratchListComponent = (props) => {
   return (
     <div className="scratchList">
       {scratches}
+      
+
     </div>
   )
 }

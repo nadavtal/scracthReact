@@ -3,7 +3,7 @@ var ReactDom = require('react-dom');
 import { Media } from 'reactstrap';
 
 //CSS requires
-require('../css/todoItem.css');
+// require('../css/todoItem.css');
 
 const Profile = (props) => {
     var profile = props.profile;

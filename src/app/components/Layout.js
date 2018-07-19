@@ -1,7 +1,5 @@
 var React = require('react');
-// import AppNavBar from './AppNavBar';
-import Header from './Header';
-import Footer from './Footer';
+
 
 
 

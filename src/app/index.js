@@ -6,7 +6,7 @@ import { Router, browserHistory  } from 'react-router';
 import { Provider } from 'react-redux'
 import { ConfigureStore } from '../redux/configureStore'
 
-import MainComponent from './components/MainComponent'
+import MainComponent from './components/mainLayout/MainComponent'
 //Module requires
 
 

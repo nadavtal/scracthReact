@@ -3,10 +3,16 @@ import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Jumbotron,
     Button, ModalHeader, ModalBody,
     Form, FormGroup, Input, Label } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
-import Modal  from './ModalComponent';
+// import Modal  from './ModalComponent';
 import withRouter from 'react-router-dom/withRouter';
 
-// console.log(Modal)
+//import components
+import Clickable from '../genericComponnets/Clickable';
+import SignUpModal from '../modals&forms/SignUpModal';
+
+//import actions
+import { addProfile } from '../../../redux/ActionCreaters';
+
 
 class Header extends Component {
     constructor(props) {
@@ -47,30 +53,16 @@ class Header extends Component {
         }
         
     render() {
-        const modal = this.state.showModal ? 
-        (
-            <Modal>
-              <div className="modal">
-                <div>
-                  With a portal, we can render content into a different
-                  part of the DOM, as if it were any other React child.
-                </div>
-                This is being rendered inside the #modal-container div.
-                <button onClick={this.handleHide}>Hide modal</button>
-              </div>
-            </Modal>
-          ) : null;
+        
         return(
             <div>
                 <Jumbotron>
                     <div className="container">
                     <Nav className="ml-auto" navbar>
-                        <NavItem>
-                            <Button outline onClick={this.handleShow}><span className=""></span> Login</Button>
-                        </NavItem>
-                        {/* <NavItem>
-                            <Button outline onClick={this.handleShow}><span className=""></span> Sign up</Button>
-                        </NavItem> */}
+                    <Clickable onClick={() => this.setState({showModal: true})}>
+                        <h1>Sign up</h1>
+                    </Clickable>
+                {this.state.showModal && <SignUpModal addProfile={addProfile} onClose={() => this.setState({showModal: false})}></SignUpModal>}
                     </Nav>
                         <div className="row row-header">
                             <div className="col-12 col-sm-6">
@@ -82,7 +74,7 @@ class Header extends Component {
                             </div>
                         </div>
                     </div>
-                    {modal}
+                    
                 </Jumbotron>
                 {/* <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                     <ModalHeader toggle={this.toggleModal}>Login</ModalHeader>

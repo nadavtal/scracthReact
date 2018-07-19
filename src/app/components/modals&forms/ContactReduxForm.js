@@ -16,11 +16,7 @@ export default class ContactRedux extends Component {
     constructor(props) {
         super(props);
 
-        
-
-        
         this.handleSubmit = this.handleSubmit.bind(this);
-        // this.gandleBlur = this.handleBlur.bind(this)
     }
 
    
@@ -31,15 +27,6 @@ export default class ContactRedux extends Component {
         alert('Current State is: ' + JSON.stringify(values));
         // event.preventDefault();
     }
-
-    // handleBlur = (field) => (evt) => {
-    //     this.setState({
-    //       touched: { ...this.state.touched, [field]: true },
-    //     });
-    // }
-    
-
-    
 
   render() {
     

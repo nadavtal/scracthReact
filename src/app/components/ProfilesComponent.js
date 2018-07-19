@@ -2,8 +2,8 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 import { Media } from 'reactstrap';
 
-import  ProfilePageComponent  from './ProfilePageComponent';
-import Profile from './Profile';
+import  ProfilePageComponent  from './profilePage/ProfilePageComponent';
+import Profile from './genericComponents/Profile';
 import { withRouter, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 

@@ -4,9 +4,9 @@ import { withRouter, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Proptypes from 'prop-types';
 
-import ScratchWindow from './ScratchWindow';
-import ScratchListComponent from './ScratchListComponent';
-import Scratch from './Scratch';
+import ScratchWindow from './ScratchWindow/ScratchWindow';
+import ScratchListComponent from './genericComponents/ScratchListComponent';
+import Scratch from './genericComponents/Scratch';
 
 //import actions
 import { addComment } from '../../redux/ActionCreaters';
@@ -31,12 +31,9 @@ class ScratchesComponent extends React.Component {
     constructor(props) {
         super();
 
-        // this.state = {
-        // scratches : SCRATCHES,
-        // profiles : PROFILES,
-        // selectedScratchId : 0
-                       
-        // }
+        this.state = {
+            showModal: false
+        }
         this.updateSelectedScratch = this.updateSelectedScratch.bind(this);
         this.onDelete = this.onDelete.bind(this);
         this.onAdd = this.onAdd.bind(this);
@@ -49,7 +46,7 @@ class ScratchesComponent extends React.Component {
         // console.log(item)
 
     }
-
+    
     onDelete(item){
         var updatedScratches = this.props.scratches.filter(function(val, index){
             return item !== val;
@@ -71,9 +68,10 @@ class ScratchesComponent extends React.Component {
     //     // this.setState({selectedScratchId: scratchId})
     // };
     
+
+
     render(){
-        // console.log('scratches compoent props', this.props)
-        // console.log(this.props.match.params.scratchId)
+        
         let Id = this.props.match.params.scratchId
         var scratchComments = this.props.comments.filter((comment) => comment.scratchId == Id)
         var scratches = this.props.scratches;
