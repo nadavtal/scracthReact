@@ -4,6 +4,9 @@ import { BrowserRouter, Route, withRouter, Redirect, Link } from 'react-router-d
 import { connect } from 'react-redux';
 
 //import actions
+import { addScratch } from '../../../redux/ActionCreaters';
+import { addComment } from '../../../redux/ActionCreaters';
+import { addProfile } from '../../../redux/ActionCreaters';
 
 // import 'font-awesome/css/font-awesome.css';
 import 'bootstrap-social/bootstrap-social.css';
@@ -31,9 +34,17 @@ const mapStateToProps = state => {
     return {
         profiles: state.profiles,
         scratches: state.scratches,
-        comments: state.comments
+        comments: state.comments,
+        scratchTypes: state.scratchTypes,
+        scratchSubTypes: state.scratchSubTypes
     }
 }
+
+const mapDispatchToProps = (dispatch) => ({
+    addScratch: (header, desc, type, subtype) => dispatch(addScratch(header, desc, type, subtype)),
+    addComment: (scratchId, rating, author, comment) => dispatch(addComment(scratchId, rating, author, comment)),
+    addProfile: (firstName, lastName, pw, userName, email, gender) => dispatch(addProfile(firstName, lastName, pw, userName, email, gender))
+});
 
 const styles = {
     container: {
@@ -55,7 +66,7 @@ const styles = {
         
             <div >
                 <MyNavBar></MyNavBar>
-                <Header />
+                <Header addProfile={addProfile}/>
                 <div style={styles.container} className="container">
             
                     
@@ -75,4 +86,4 @@ const styles = {
   }
 }
 
-export default withRouter(connect(mapStateToProps)(MainComponent))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MainComponent))

@@ -6,6 +6,8 @@ import PhotosComponent from '../genericComponents/PhotosComponent';
 import Clickable from '../genericComponents/Clickable'
 import Scratch from '../genericComponents/Scratch';
 import AddScratchModal from '../modals&forms/AddScratchModal'
+import ProfileStats from './ProfileStats'
+import Profile from '../genericComponents/Profile';
 //CSS requires
 require('../../css/scratchWindow.css');
 
@@ -38,6 +40,8 @@ class ProfilePageComponent extends React.Component {
     }
 
     render(){
+        var types = this.props.types
+        var subTypes = this.props.subTypes
         var profile = this.props.profile
         var photos = profile.photos
         var profiles = this.props.profiles
@@ -60,6 +64,9 @@ class ProfilePageComponent extends React.Component {
                     {this.state.showModal &&<AddScratchModal onClose={() => this.setState({showModal: false})}/>}
                 <div className="scratchList">
                     <ScratchListComponent scratches={profileScratches} />
+                </div>
+                <div className="profileStats" >
+                    <ProfileStats scratches={profileScratches} types={types} subTypes={subTypes}/>
                 </div>
             </div>
         );

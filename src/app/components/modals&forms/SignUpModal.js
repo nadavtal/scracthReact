@@ -36,21 +36,21 @@ const styles = {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        profiles: state.profiles,
-        scratches: state.scratches,
-        comments: state.comments
-    }
-}
+// const mapStateToProps = state => {
+//     return {
+//         profiles: state.profiles,
+//         scratches: state.scratches,
+//         comments: state.comments
+//     }
+// }
 
-const mapDispatchToProps = (dispatch) => ({
-    addComment: (scratchId, rating, author, comment) => dispatch(addComment(scratchId, rating, author, comment))
-});
+// const mapDispatchToProps = (dispatch) => ({
+//     addProfile: (firstName, lastName, pw, userName, email, gender) => dispatch(addProfile(firstName, lastName, pw, userName, email, gender))
+// });
 class SignUpModal extends Component {
     constructor(props){
         super(props);
-        console.log(props)
+        console.log('SignUpModal', props)
         this.element = document.createElement('div')
         this.modalRoot = document.getElementById('modal-root');
         this.modalRoot.appendChild(this.element)
@@ -86,6 +86,7 @@ class SignUpModal extends Component {
         console.log('new profile values',values)
         console.log('Current State is: ' + JSON.stringify(values));
         alert('Current State is: ' + JSON.stringify(values));
+        console.log(this.props)
         this.props.addProfile(values.firstName, values.lastName, values.password, values.userName, values.email, values.gender)
     }
     _renderModal() {
@@ -99,9 +100,9 @@ class SignUpModal extends Component {
                         <div className="col-12 col-md-9">
                         <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
                         <Row className="form-group">
-                            <Label htmlFor="firstname" md={2}>First Name</Label>
+                            <Label htmlFor="firstName" md={2}>First Name</Label>
                             <Col md={10}>
-                                <Control.text model=".firstname" id="firstname" name="firstname"
+                                <Control.text model=".firstName" id="firstName" name="firstName"
                                     placeholder="First Name"
                                     className="form-control"
                                     validators={{
@@ -110,7 +111,7 @@ class SignUpModal extends Component {
                                         />
                                 <Errors
                                     className="text-danger"
-                                    model=".firstname"
+                                    model=".firstName"
                                     show="touched"
                                     messages={{
                                         required: 'Required',
@@ -121,9 +122,9 @@ class SignUpModal extends Component {
                             </Col>
                         </Row>
                         <Row className="form-group">
-                            <Label htmlFor="lastname" md={2}>Last Name</Label>
+                            <Label htmlFor="lastName" md={2}>Last Name</Label>
                             <Col md={10}>
-                                <Control.text model=".lastname" id="lastname" name="lastname"
+                                <Control.text model=".lastName" id="lastName" name="lastName"
                                     placeholder="Last Name"
                                     className="form-control"
                                     validators={{
@@ -132,7 +133,7 @@ class SignUpModal extends Component {
                                         />
                                 <Errors
                                     className="text-danger"
-                                    model=".lastname"
+                                    model=".lastName"
                                     show="touched"
                                     messages={{
                                         required: 'Required',
@@ -251,4 +252,4 @@ class SignUpModal extends Component {
     
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SignUpModal))
+export default SignUpModal

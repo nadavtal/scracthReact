@@ -3,6 +3,9 @@ import { Profiles } from './profilesReducer';
 import { Comments } from './commentsReducer';
 import { Scratches } from './scrtachesReducer';
 import { ScratchTypes } from './scratchTypesReducer';
+import { ScratchSubTypes } from './ScratchSubTypesReducer';
+
+
 
 export const ConfigureStore = () => {
     const store = createStore(
@@ -10,7 +13,8 @@ export const ConfigureStore = () => {
             profiles: Profiles,
             comments: Comments,
             scratches:  Scratches,
-            scratchTypes: ScratchTypes
+            scratchTypes: ScratchTypes,
+            scratchSubTypes: ScratchSubTypes
 
         })
     )

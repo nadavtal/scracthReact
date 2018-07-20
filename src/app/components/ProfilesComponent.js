@@ -10,7 +10,9 @@ import { connect } from 'react-redux';
 const mapStateToProps = state => {
     return {
         profiles: state.profiles,
-        scratches: state.scratches
+        scratches: state.scratches,
+        scratchTypes: state.scratchTypes,
+        scratchSubTypes: state.scratchSubTypes
     }
 }
 // console.log(props, 'yayyy')
@@ -37,6 +39,9 @@ class ProfilesComponent extends React.Component{
     }
 
     render(){
+
+        var types = this.props.scratchTypes
+        var subTypes = this.props.scratchSubTypes
         var profiles = this.props.profiles;
         console.log(profiles)
         var scratches = this.props.scratches;
@@ -58,7 +63,13 @@ class ProfilesComponent extends React.Component{
             <div className="row"> 
                 <div className="col-sm-7">   
                     <div id="profiles-list">
-                        <ProfilePageComponent profile={selectedProfile} profiles={profiles} scratches={scratches}></ProfilePageComponent>
+                        <ProfilePageComponent 
+                        profile={selectedProfile} 
+                        profiles={profiles} 
+                        scratches={scratches}
+                        types={types} 
+                        subTypes={subTypes}
+                        ></ProfilePageComponent>
                     </div>
                 </div>
                 <div className="col-sm-3 profilesList">   

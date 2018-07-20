@@ -6,6 +6,9 @@ import { Control, LocalForm, Errors } from 'react-redux-form';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+//import components
+import TypesAndSubTypes from '../genericComponents/types&subTypes'
+
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
@@ -36,21 +39,22 @@ const styles = {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        profiles: state.profiles,
-        scratches: state.scratches,
-        comments: state.comments
-    }
-}
+// const mapStateToProps = state => {
+//     return {
+//         scratchTypes: state.scratchTypes,
+//         scratchSubTypes: state.scratchSubTypes
+//     }
+// }
 
-const mapDispatchToProps = (dispatch) => ({
-    addComment: (scratchId, rating, author, comment) => dispatch(addComment(scratchId, rating, author, comment))
-});
+// const mapDispatchToProps = (dispatch) => ({
+//     addScratch: (header, desc, type, subtype) => dispatch(addScratch(header, desc, type, subtype))
+// });
+
+
 class AddScratchModal extends Component {
     constructor(props){
         super(props);
-        console.log(props)
+        console.log('AddScratchModal', props)
         this.element = document.createElement('div')
         this.modalRoot = document.getElementById('modal-root');
         this.modalRoot.appendChild(this.element)
@@ -86,9 +90,20 @@ class AddScratchModal extends Component {
         console.log('new profile values',values)
         console.log('Current State is: ' + JSON.stringify(values));
         alert('Current State is: ' + JSON.stringify(values));
-        // this.props.addProfile(values.scratchDesc, values.lastName, values.password, values.userName, values.email, values.scratchType)
+        this.props.addScratch(values.scratchHeader, values.scratchDesc, values.types, values.subTypes)
     }
     _renderModal() {
+        var types = this.props.types;
+        var subTypes = this.props.subTypes;
+        
+        console.log('types', types)
+        console.log('subTypes', subTypes)
+
+    
+        
+        console.log(types)
+        
+        
         return (
             <div style={styles.background} onClick={this.clickedBackground}>
                 <div style={styles.container} onClick={e=> e.stopPropagation()}>
@@ -110,7 +125,7 @@ class AddScratchModal extends Component {
                                         />
                                 <Errors
                                     className="text-danger"
-                                    model=".scratchDesc"
+                                    model=".scratchHeader"
                                     show="touched"
                                     messages={{
                                         required: 'Required',
@@ -143,51 +158,14 @@ class AddScratchModal extends Component {
                             </Col>
                         </Row>
                         
-                        <Row className="form-group">
-                            <Col md={{size: 3, offset: 1}}>
-                                <Control.select model=".scratchType" name="scratchType"
-                                validators={{
-                                    required
-                                }} >                                        
-                                    <option>Male</option>
-                                    <option>Female</option>
-                                    
-                                </Control.select>
-                                <Errors
-                                    className="text-danger"
-                                    model=".scratchType"
-                                    show="touched"
-                                    messages={{
-                                        required: 'Required',
-                                        
-                                    }} />
-                            </Col>
-                            <Col md={{size: 3, offset: 1}}>
-                                <Control.select model=".scratchSubType" name="scratchSubType"
-                                validators={{
-                                    required
-                                }} >                                        
-                                    <option>Male</option>
-                                    <option>Female</option>
-                                    
-                                </Control.select>
-                                <Errors
-                                    className="text-danger"
-                                    model=".scratchSubType"
-                                    show="touched"
-                                    messages={{
-                                        required: 'Required',
-                                        
-                                    }} />
-                            </Col>
-                           
-                            <Col md={{size: 3, offset: 1}}>
+                        <TypesAndSubTypes types={types} subTypes={subTypes} />
+                        <Row>
+                            <Col md={{size: 2, offset: 2}}>
                                 <Button type="submit" color="primary">
-                                    Sign up
+                                    Add scratch
                                 </Button>
-                            </Col>  
-                        </Row>
-                        
+                            </Col>
+                        </Row> 
                     </LocalForm>
                         </div>
                     </div>
@@ -204,4 +182,4 @@ class AddScratchModal extends Component {
     
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AddScratchModal))
+export default AddScratchModal

@@ -9,10 +9,15 @@ export const Profiles = (state = PROFILES, action) => {
             var profile = action.payload;
             console.log('profile', profile)
             profile.id = state.length;
+            profile.birthDate = new Date,
+            profile.photos = [],
+            profile.scratches = []
             
-            profile.registrayionDate = new Date().toISOString();
+            // profile.registrationDate = new Date().toISOString();
+            console.log('new profile created in Profiles reducer', profile)
             return state.concat(profile);
         default:
             return state;
     }
+    console.log('profiles reducer after profile added', state)
 }

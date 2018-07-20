@@ -16,22 +16,22 @@ class Clickable extends Component {
     }
 
     mouseOver(event){
-        console.log('mouse enter')
+        // console.log('mouse enter')
        this.setState({hover:true})
     }
 
     mouseOut(){
-        console.log('mouse out')
+        // console.log('mouse out')
         this.setState({hover:false})
     }
 
     mouseDown(){
-        console.log('mouse down')
+        // console.log('mouse down')
         this.setState({down:true})
     }
 
     mouseUp(){
-        console.log('mouse up')
+        // console.log('mouse up')
         this.setState({down:false})
     }
 

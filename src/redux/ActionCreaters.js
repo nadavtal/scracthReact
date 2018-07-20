@@ -12,6 +12,7 @@ export const addComment = (scratchId, rating, author, comment) => ({
 })
 
 export const addProfile = (firstName, lastName, pw, userName, email, gender) => ({
+    
     type: ActionTypes.ADD_PROFILE,
     payload: {
         
@@ -21,19 +22,16 @@ export const addProfile = (firstName, lastName, pw, userName, email, gender) => 
         userName: userName,
         email: email,
         gender: gender,
-        birthDate: new Date,
-        photos: [],
-        scratches: []
-
+        
     }
 })
 
-export const addScratch = (scratchId, rating, author, comment) => ({
-    type: ActionTypes.ADD_COMMENT,
+export const addScratch = (header, desc, type, subtype) => ({
+    type: ActionTypes.ADD_SCRATCH,
     payload: {
-        scratchId: scratchId,
-        rating: rating,
-        author: author,
-        comment: comment
+        header: header,
+        desc: desc,
+        type: type,
+        subtype: subtype
     }
 })

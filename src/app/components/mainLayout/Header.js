@@ -7,7 +7,7 @@ import { NavLink } from 'react-router-dom';
 import withRouter from 'react-router-dom/withRouter';
 
 //import components
-import Clickable from '../genericComponnets/Clickable';
+import Clickable from '../genericComponents/Clickable';
 import SignUpModal from '../modals&forms/SignUpModal';
 
 //import actions
@@ -53,7 +53,7 @@ class Header extends Component {
         }
         
     render() {
-        
+        console.log('header props', this.props)
         return(
             <div>
                 <Jumbotron>
@@ -62,7 +62,7 @@ class Header extends Component {
                     <Clickable onClick={() => this.setState({showModal: true})}>
                         <h1>Sign up</h1>
                     </Clickable>
-                {this.state.showModal && <SignUpModal addProfile={addProfile} onClose={() => this.setState({showModal: false})}></SignUpModal>}
+                {this.state.showModal && <SignUpModal addProfile={this.props.addProfile} onClose={() => this.setState({showModal: false})}></SignUpModal>}
                     </Nav>
                         <div className="row row-header">
                             <div className="col-12 col-sm-6">
