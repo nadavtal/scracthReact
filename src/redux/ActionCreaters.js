@@ -35,3 +35,18 @@ export const addScratch = (header, desc, type, subtype) => ({
         subtype: subtype
     }
 })
+
+export const updateScratch = (header, desc, type, subtype) => ({
+    type: ActionTypes.ADD_SCRATCH,
+    payload: {
+        header: header,
+        desc: desc,
+        type: type,
+        subtype: subtype
+    }
+})
+
+export const increment = (index) => ({
+    type: 'INCREMENT_LIKES',
+    payload: index
+})

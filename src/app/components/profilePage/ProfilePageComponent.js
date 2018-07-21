@@ -61,7 +61,7 @@ class ProfilePageComponent extends React.Component {
                     <Clickable onClick={() => this.setState({showModal: true})}>
                         <h3>add scratch</h3>
                     </Clickable>
-                    {this.state.showModal &&<AddScratchModal onClose={() => this.setState({showModal: false})}/>}
+                    {this.state.showModal &&<AddScratchModal addScratch={this.props.addScratch} types={types} subTypes={subTypes} onClose={() => this.setState({showModal: false})}/>}
                 <div className="scratchList">
                     <ScratchListComponent scratches={profileScratches} />
                 </div>

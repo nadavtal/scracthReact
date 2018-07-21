@@ -11,8 +11,6 @@ import Clickable from '../genericComponents/Clickable';
 import SignUpModal from '../modals&forms/SignUpModal';
 
 //import actions
-import { addProfile } from '../../../redux/ActionCreaters';
-
 
 class Header extends Component {
     constructor(props) {

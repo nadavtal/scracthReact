@@ -6,6 +6,7 @@ export const Profiles = (state = PROFILES, action) => {
     console.log('profiles reducer', state)
     switch(action.type) {
         case ActionTypes.ADD_PROFILE:
+            console.log('here33333')
             var profile = action.payload;
             console.log('profile', profile)
             profile.id = state.length;

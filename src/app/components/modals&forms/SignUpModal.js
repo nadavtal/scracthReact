@@ -87,7 +87,9 @@ class SignUpModal extends Component {
         console.log('Current State is: ' + JSON.stringify(values));
         alert('Current State is: ' + JSON.stringify(values));
         console.log(this.props)
+        this.props.addProfile()
         this.props.addProfile(values.firstName, values.lastName, values.password, values.userName, values.email, values.gender)
+        console.log('here33333')
     }
     _renderModal() {
         return (

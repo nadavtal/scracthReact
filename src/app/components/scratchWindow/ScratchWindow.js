@@ -91,7 +91,7 @@ const ScratchWindow = (props) => {
     return (
         <div className="container scratchWindow">
             <ScratchMainText scratch={scratch}/>
-            <ScratchButtons scratch={scratch} />
+            <ScratchButtons increment={props.increment} scratch={scratch} />
             <ScratchStats stats={stats}/>
             <Comments comments = {comments} addComment={props.addComment} scratchId={scratch.id}/>
             <ProfilesWithScratch profilesWithScratch={profilesWithScratch}/>

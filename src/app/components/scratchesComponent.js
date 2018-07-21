@@ -17,6 +17,7 @@ import AddScratchModal from './modals&forms/AddScratchModal'
 //import actions
 import { addScratch } from '../../redux/ActionCreaters';
 import { addComment } from '../../redux/ActionCreaters';
+import { increment } from '../../redux/ActionCreaters';
 
 // import css
 require('../css/scratchesComponent.css');
@@ -35,7 +36,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => ({
     addScratch: (header, desc, type, subtype) => dispatch(addScratch(header, desc, type, subtype)),
-    addComment: (scratchId, rating, author, comment) => dispatch(addComment(scratchId, rating, author, comment))
+    addComment: (scratchId, rating, author, comment) => dispatch(addComment(scratchId, rating, author, comment)),
+    increment: (index) => dispatch(increment(index))
 });
 
 class ScratchesComponent extends React.Component {
@@ -82,7 +84,7 @@ class ScratchesComponent extends React.Component {
 
 
     render(){
-        
+        console.log('scratches component props', this.props)
         let Id = this.props.match.params.scratchId
         var scratchComments = this.props.comments.filter((comment) => comment.scratchId == Id)
         var scratches = this.props.scratches;
@@ -98,7 +100,7 @@ class ScratchesComponent extends React.Component {
                 <div className="col-12 col-md-8">
                     <ScratchWindow scratches={scratches} scratch={selectedScratch} 
                     profiles = {profiles} comments={scratchComments} addScratch={this.props.addScratch}
-                    addComment={this.props.addComment}></ScratchWindow>
+                    addComment={this.props.addComment} increment={this.props.increment}></ScratchWindow>
                 </div>    
                 <div className="col-12 col-md-4 ">
                     <Clickable onClick={() => this.setState({showModal: true})}>

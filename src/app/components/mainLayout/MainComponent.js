@@ -61,7 +61,17 @@ const styles = {
 }
 
  class MainComponent extends Component {
+     constructor(props) {
+         super(props);
+     }
+
   render() {
+    var profiles = this.props.profiles;
+    var scratches = this.props.scratches;
+    var comments = this.props.comments;
+    var scratchTypes = this.props.scratchTypes;
+    var scratchSubTypes = this.props.scratchSubTypes;
+      console.log('main component props', this.props)
     return (
         
             <div >
@@ -71,10 +81,10 @@ const styles = {
             
                     
                     <div>
-                        <Route exact path={"/"} component={Homepage}></Route>
+                        <Route exact path={"/"} render={() => <Homepage profiles={profiles} scratches={scratches} scratchTypes={scratchTypes} scratchSubTypes={scratchSubTypes} />} /> 
                         <Route path={"/profiles/:profileId"} component={ProfilesComponent}></Route>
                         <Route path={"/about"} component={About}></Route>
-                        <Route path={"/scratches/:scratchId"} component={ScratchesComponent}></Route>
+                        <Route path={"/scratches/:scratchId"} component={ScratchesComponent} />
                         <Route exact path={'/contact'} component={ContactRedux} ></Route>
                     </div>
                     

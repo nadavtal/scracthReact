@@ -7,6 +7,10 @@ import Profile from './genericComponents/Profile';
 import { withRouter, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+//import actions
+import { addScratch, addProfile } from '../../redux/ActionCreaters';
+import { addComment } from '../../redux/ActionCreaters';
+
 const mapStateToProps = state => {
     return {
         profiles: state.profiles,
@@ -15,7 +19,11 @@ const mapStateToProps = state => {
         scratchSubTypes: state.scratchSubTypes
     }
 }
-// console.log(props, 'yayyy')
+const mapDispatchToProps = (dispatch) => ({
+    addProfile: (firstName, lastName, pw, userName, email, gender) => dispatch(addProfile(firstName, lastName, pw, userName, email, gender)),
+    addScratch: (header, desc, type, subtype) => dispatch(addScratch(header, desc, type, subtype)),
+    addComment: (scratchId, rating, author, comment) => dispatch(addComment(scratchId, rating, author, comment))
+});
 class ProfilesComponent extends React.Component{
     
     
@@ -69,6 +77,7 @@ class ProfilesComponent extends React.Component{
                         scratches={scratches}
                         types={types} 
                         subTypes={subTypes}
+                        addScratch={this.props.addScratch}
                         ></ProfilePageComponent>
                     </div>
                 </div>
@@ -83,4 +92,4 @@ class ProfilesComponent extends React.Component{
     }
 }
 
-export default withRouter(connect(mapStateToProps)(ProfilesComponent))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ProfilesComponent))
