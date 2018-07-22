@@ -2,6 +2,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 import { withRouter, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { Container, Button, Row, Col, Label } from 'reactstrap';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 import Proptypes from 'prop-types';
 //import components
@@ -96,27 +97,34 @@ class ScratchesComponent extends React.Component {
         
         return(
             <div>
-            <div className="row">
-                <div className="col-12 col-md-8">
-                    <ScratchWindow scratches={scratches} scratch={selectedScratch} 
-                    profiles = {profiles} comments={scratchComments} addScratch={this.props.addScratch}
-                    addComment={this.props.addComment} increment={this.props.increment}></ScratchWindow>
-                </div>    
-                <div className="col-12 col-md-4 ">
-                    <Clickable onClick={() => this.setState({showModal: true})}>
-                        <h4>add scratch</h4>
-                    </Clickable>
-                    <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
-                        <button>Male</button>
-                        <button>Female</button>
-                        <TypesAndSubTypes types={types} subTypes={subTypes} />
-                    </LocalForm>
-                    {this.state.showModal &&<AddScratchModal addScratch={this.props.addScratch} types={types} subTypes={subTypes} onClose={() => this.setState({showModal: false})}/>}
-                    <ScratchListComponent scratches={scratches}></ScratchListComponent>
-                </div>
+                <Row>
+                    <Col md={8}>
+                        <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
+                            <Button onClick={this.getMalesScratches}>Male</Button>
+                            <Button>Female</Button>
+                            <TypesAndSubTypes types={types} subTypes={subTypes} />  
+                        </LocalForm>
+                    </Col>
+                    <Col md={4}>
+                        <Clickable onClick={() => this.setState({showModal: true})}>
+                            <h4><Button>add scratch</Button></h4>
+                        </Clickable>`
+                    </Col>
+                </Row>
+                <Row>
+                    <Col md={8} >
+                        <ScratchWindow scratches={scratches} scratch={selectedScratch} 
+                        profiles = {profiles} comments={scratchComments} addScratch={this.props.addScratch}
+                        addComment={this.props.addComment} increment={this.props.increment}></ScratchWindow>
+                    </Col>    
+                    <Col md={4} >
+                        
+                        <ScratchListComponent scratches={scratches}></ScratchListComponent>
+                    </Col>
+                </Row>
+                {this.state.showModal &&<AddScratchModal addScratch={this.props.addScratch} types={types} subTypes={subTypes} onClose={() => this.setState({showModal: false})}/>}
+                
             </div>
-            
-        </div>
         );
     }
 

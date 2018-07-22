@@ -28,7 +28,7 @@ const TypesAndSubTypes = (props) => {
       )})
   return (
     <Row className="form-group">
-       <Col md={{size: 3, offset: 1}}>
+       <Col md={6}>
             <Control.select model=".scratchSubType" name="scratchSubType"
             validators={{
                 required
@@ -45,7 +45,7 @@ const TypesAndSubTypes = (props) => {
                     
                 }} />
         </Col>
-        <Col md={{size: 3, offset: 1}}>
+        <Col md={6}>
             <Control.select model=".scratchSubType" name="scratchSubType"
             validators={{
                 required

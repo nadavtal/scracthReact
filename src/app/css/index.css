@@ -14,3 +14,17 @@
     margin-right: 10px;
 
 }
+
+.signUpButton{
+    border: 1px solid black;
+    text-align: center;
+    
+}
+
+.modal{
+    border: 4px solid orangered;
+}
+
+.homepageRow{
+    /* border: 4px solid orangered; */
+}

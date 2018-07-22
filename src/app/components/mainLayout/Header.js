@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Navbar, NavbarBrand, Nav, NavbarToggler, Collapse, NavItem, Jumbotron,
-    Button, ModalHeader, ModalBody,
-    Form, FormGroup, Input, Label } from 'reactstrap';
+import { Breadcrumb, BreadcrumbItem, Container,
+     Row, Col, Jumbotron, Button, Label } from 'reactstrap';
+    
 import { NavLink } from 'react-router-dom';
 // import Modal  from './ModalComponent';
 import withRouter from 'react-router-dom/withRouter';
@@ -55,31 +55,22 @@ class Header extends Component {
         return(
             <div>
                 <Jumbotron>
-                    <div className="container">
-                    <Nav className="ml-auto" navbar>
-                    <Clickable onClick={() => this.setState({showModal: true})}>
-                        <h1>Sign up</h1>
-                    </Clickable>
-                {this.state.showModal && <SignUpModal addProfile={this.props.addProfile} onClose={() => this.setState({showModal: false})}></SignUpModal>}
-                    </Nav>
-                        <div className="row row-header">
-                            <div className="col-12 col-sm-6">
+                    <Container >
+                        <Row>
+                            <Col sm={6}>
                                 <h1>SCRATCH</h1>
                                 <p>Connect by your personal scracthes</p>
-                            </div>
-                            <div id='headerModal' className="col-12 col-sm-6">
-                                
-                            </div>
-                        </div>
-                    </div>
-                    
+                            </Col>
+                            <Col sm={6}>
+                                <Clickable onClick={() => this.setState({showModal: true})}>
+                                    <h1 className="signUpButton" >Sign up</h1>
+                                </Clickable>
+                            </Col>
+
+                        </Row>
+                {this.state.showModal && <SignUpModal addProfile={this.props.addProfile} onClose={() => this.setState({showModal: false})}></SignUpModal>}
+                    </Container>
                 </Jumbotron>
-                {/* <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
-                    <ModalHeader toggle={this.toggleModal}>Login</ModalHeader>
-                    <ModalBody>
-                    
-                    </ModalBody>
-                </Modal> */}
             </div>
         );
     }

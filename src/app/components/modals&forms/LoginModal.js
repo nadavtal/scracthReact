@@ -45,7 +45,7 @@ const styles = {
     }
 }
 
-class SignUpModal extends Component {
+class LoginModal extends Component {
     constructor(props){
         super(props);
         console.log('SignUpModal', props)
@@ -85,9 +85,8 @@ class SignUpModal extends Component {
         console.log('Current State is: ' + JSON.stringify(values));
         alert('Current State is: ' + JSON.stringify(values));
         console.log(this.props)
-        this.props.addProfile()
-        this.props.addProfile(values.firstName, values.lastName, values.password, values.userName, values.email, values.gender)
-        console.log('here33333')
+        
+        
     }
     _renderModal() {
         return (
@@ -95,78 +94,11 @@ class SignUpModal extends Component {
                 <div style={styles.container} onClick={e=> e.stopPropagation()}>
                     
                         <div className="col-12">
-                            <h3>Sign up</h3>
+                            <h3>Login</h3>
                         </div>
                                        
                         {/* <div className="col-12 col-md-9"> */}
                         <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
-                            <Row className="form-group">
-                                <Label htmlFor="firstName" md={3}>First Name</Label>
-                                <Col md={9}>
-                                    <Control.text model=".firstName" id="firstName" name="firstName"
-                                        placeholder="First Name"
-                                        className="form-control"
-                                        validators={{
-                                            required, minLength: minLength(3), maxLength: maxLength(15)
-                                        }}
-                                            />
-                                    <Errors
-                                        className="text-danger"
-                                        model=".firstName"
-                                        show="touched"
-                                        messages={{
-                                            required: 'Required! ',
-                                            minLength: 'Must be greater than 2 characters',
-                                            maxLength: 'Must be 15 characters or less'
-                                        }}
-                                        />
-                                </Col>
-                            </Row>
-                            <Row className="form-group">
-                                <Label htmlFor="lastName" md={3}>Last Name</Label>
-                                <Col md={9}>
-                                    <Control.text model=".lastName" id="lastName" name="lastName"
-                                        placeholder="Last Name"
-                                        className="form-control"
-                                        validators={{
-                                            required, minLength: minLength(3), maxLength: maxLength(15)
-                                        }}
-                                            />
-                                    <Errors
-                                        className="text-danger"
-                                        model=".lastName"
-                                        show="touched"
-                                        messages={{
-                                            required: 'Required! ',
-                                            minLength: 'Must be greater than 2 characters',
-                                            maxLength: 'Must be 15 characters or less'
-                                        }}
-                                        />
-                                </Col>
-                            </Row>
-                            <Row className="form-group">
-                                <Label htmlFor="userName" md={3}>User name</Label>
-                                <Col md={9}>
-                                    <Control.text model=".userName" id="userName" name="userName"
-                                        placeholder="Last Name"
-                                        className="form-control"
-                                        validators={{
-                                            required, minLength: minLength(3), maxLength: maxLength(15)
-                                        }}
-                                            />
-                                    <Errors
-                                        className="text-danger"
-                                        model=".userName"
-                                        show="touched"
-                                        messages={{
-                                            required: 'Required! ',
-                                            minLength: 'Must be greater than 2 characters',
-                                            maxLength: 'Must be 15 characters or less'
-                                        }}
-                                        />
-                                </Col>
-                            </Row>
-                            
                             <Row className="form-group">
                                 <Label htmlFor="password" md={3}>Password</Label>
                                 <Col md={9}>
@@ -211,25 +143,7 @@ class SignUpModal extends Component {
                                 </Col>
                             </Row> 
                             <Row style={styles.buttons} className="form-group">
-                                <Col md={{size: 3, offset: 1}}>
-                                    <Control.select model=".gender" name="gender"
-                                    validators={{
-                                        required
-                                    }} >                                        
-                                        <option>Male</option>
-                                        <option>Female</option>
-                                        
-                                    </Control.select>
-                                    <Errors
-                                        className="text-danger"
-                                        model=".gender"
-                                        show="touched"
-                                        messages={{
-                                            required: 'Required! ',
-                                            
-                                        }} />
-                                </Col>
-                            
+                                                           
                                 <Col sm={{size: 3, offset: 1}}>
                                     <Button  type="submit" color="primary">
                                         Sign up
@@ -258,4 +172,4 @@ class SignUpModal extends Component {
     
 }
 
-export default SignUpModal
+export default LoginModal

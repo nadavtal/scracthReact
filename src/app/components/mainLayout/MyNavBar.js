@@ -9,12 +9,16 @@ import {
   NavLink,
   Container
 } from 'reactstrap';
+import LoginModal from '../modals&forms/LoginModal';
+
+
 
 export default class MyNavBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isOpen: false
+      isOpen: false,
+      showModal: false
     }
     this.toggleNav = this.toggleNav.bind(this);
   }
@@ -33,7 +37,7 @@ export default class MyNavBar extends React.Component {
             <NavbarBrand href="/">Home</NavbarBrand>
             <NavbarToggler onClick={this.toggleNav} />
             <Collapse isOpen={this.state.isOpen} navbar>
-              <Nav className="ml-auto" navbar>
+              <Nav className="mr-auto" navbar>
                 
                 <NavItem>
                   <NavLink className="nav-link" href="/scratches/0">scratches </NavLink>
@@ -45,13 +49,15 @@ export default class MyNavBar extends React.Component {
                 <NavItem>
                   <NavLink className="nav-link" href="/contact">contact </NavLink>
                 </NavItem>
-                <NavItem>
-                  <NavLink className="nav-link" href="/contact">login </NavLink>
+                <NavItem >
+                  <NavLink className="nav-link" onClick={() => this.setState({showModal: true})}>login </NavLink>
                 </NavItem>
               </Nav>
             </Collapse>
           </Container>
         </Navbar>
+        {this.state.showModal && <LoginModal onClose={() => this.setState({showModal: false})}></LoginModal>}
+                    
       </div>
     );
   }
